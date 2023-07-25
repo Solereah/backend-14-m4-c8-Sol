@@ -13,14 +13,14 @@ const getHourlyTemperatureAndHumidity = () => {
   return result
 }
 const getPressureLevelByTemperature = (temperature: number) => {
-  const result = db.timelines.hourly.map((element) => {
-    if (element.values.temperature >= temperature) {
+  const result = db.timelines.hourly
+    .filter((element) => element.values.temperature >= temperature)
+    .map((element) => {
       return {
         pressureSurfaceLevel: element.values.pressureSurfaceLevel,
         temperature: element.values.temperature,
       }
-    }
-  })
+    })
   return result
 }
 export { getHourlyTemperatureAndHumidity, getPressureLevelByTemperature }
