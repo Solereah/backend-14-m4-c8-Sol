@@ -22,6 +22,7 @@ const getPressureLevelByTemperature = (temperature: number) => {
         temperature: element.values.temperature,
       }
     })
+
   return result
 }
 export { getHourlyTemperatureAndHumidity, getPressureLevelByTemperature }
